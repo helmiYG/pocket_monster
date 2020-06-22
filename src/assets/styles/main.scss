@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import 'variables.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+
+  @media screen and (max-width: 1279){
+    font-size: 14px;
+  }
+
+  // Mobile screen
+  @media screen and (max-width: 768px){
+    font-size: 13px;
+  }
+  
+  p {
+    margin: 0px;
+  }
+}

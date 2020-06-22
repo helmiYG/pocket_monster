@@ -1,0 +1,16 @@
+/* ==========================================================================
+Styles for Links component
+========================================================================== */
+
+// import mixin and variables
+@import "../../../assets/styles/main";
+
+// Start styles Links component
+.a-links {
+  text-decoration: none;
+  color: $black;
+  &:hover,
+  &:active {
+    color: $black;
+  }
+}
