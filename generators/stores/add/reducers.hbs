@@ -1,0 +1,22 @@
+// {{ camelCase name }} Reducers
+// --------------------------------------------------------
+
+import {
+  SET_LOADING
+} from 'stores/actions/{{ camelCase name }}';
+
+const initialState = {
+  isLoading: false
+};
+
+export default (state = initialState, { payload, type }) => {
+  switch (type) {
+    case SET_LOADING:
+      return {
+        ...state,
+        isLoading: payload
+      };
+    default:
+      return state;
+  }
+};

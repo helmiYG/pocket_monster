@@ -1,0 +1,32 @@
+// {{ properCase name }} Component
+// --------------------------------------------------------
+
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import './styles.scss';
+
+class {{ properCase name }} extends Component {
+// state = {};
+// componentDidMount() {}
+// yourFunction = () => {};
+
+render() {
+const { propsName } = this.props;
+
+return (
+<tag>
+  Class Component (Stateful Component)
+</tag>
+);
+}
+}
+
+{{ properCase name }}.propTypes = {
+propsName: PropTypes.string,
+};
+
+{{ properCase name }}.defaultProps = {
+propsName: '',
+};
+
+export default ({{ properCase name }});
