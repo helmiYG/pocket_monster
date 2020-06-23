@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { getPokemonsAction  } from 'stores/actions'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 // import PropTypes from 'prop-types'
@@ -13,11 +13,16 @@ const Home = () => {
 
   const dispatch = useDispatch()
 
+  const getPokemons = useCallback(
+    () => dispatch(getPokemonsAction()),
+    [dispatch]
+  );
+
   useEffect(() => {
-    dispatch(getPokemonsAction())
-  }, [dispatch]);
+    getPokemons()
+  }, [getPokemons]);
   return (
-    <Dashboard title='Pocket Monster' listPokemons={listPokemons} />
+    <Dashboard title='Pocket Monster' listPokemons={listPokemons} getPokemons={getPokemons}/>
   )
 }
 

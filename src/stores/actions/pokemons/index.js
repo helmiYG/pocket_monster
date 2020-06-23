@@ -6,6 +6,7 @@ import { getPokemons, getPokemon } from 'utils/api'
 
 export const SET_LOADING = 'pokemons/SET_LOADING';
 export const SET_LIST_POKEMONS = 'pokemons/SET_LIST_POKEMONS';
+export const SET_NEXT_URL = 'pokemons/SET_NEXT_URL';
 export const SET_LIST_POKEMONS_MASTER = 'pokemons/SET_LIST_POKEMONS_MASTER';
 
 export const setLoading = (payload) => ({
@@ -23,15 +24,20 @@ export const setListPokemonsMaster = (payload) => ({
   payload
 });
 
-export const getPokemonAction = (payload) => (dispatch) => {
+export const setNextURL = (payload) => ({
+  type: SET_NEXT_URL,
+  payload
+})
+
+export const getPokemonAction = (payload) => (dispatch, getState) => {
+  const listPokemonsMaster = getState().pokemons.listPokemonsMaster;
   Promise.all(payload)
   .then((response) => {
     let result = []
-    console.warn(response);
-    
     response.map((element) => result.push({...element.data, image:`https://pokeres.bastionbot.org/images/pokemon/${element.data.id}.png`}))
-    dispatch(setListPokemons(result))
-    dispatch(setListPokemonsMaster(result))
+    const newResult = listPokemonsMaster.concat(result)
+    dispatch(setListPokemons([...newResult]))
+    dispatch(setListPokemonsMaster([...newResult]))
     
   }).catch((err) => {
     console.warn(err)
@@ -39,13 +45,13 @@ export const getPokemonAction = (payload) => (dispatch) => {
 
 }
 
-export const getPokemonsAction = () => (dispatch) => {
-  getPokemons()
+export const getPokemonsAction = () => (dispatch, getState) => {
+  const url = getState().pokemons.url;
+  getPokemons(url)
   .then(({ data }) => {
-    
+    dispatch(setNextURL(data.next))
     const details = []
     data.results.map((element) => details.push(getPokemon(element.url)))
-    console.warn(details, 'details');
     
     dispatch(getPokemonAction(details))
   }).catch((err) => {

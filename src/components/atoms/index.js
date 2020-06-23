@@ -6,4 +6,6 @@ import H4 from './H4';
 import Input from './Input';
 
 import Links from './Links';
-export { Button, H1, H2, H3, H4, Input, Links }
+import Loader from './Loader';
+export {
+ Button, H1, H2, H3, H4, Input, Links, Loader }
