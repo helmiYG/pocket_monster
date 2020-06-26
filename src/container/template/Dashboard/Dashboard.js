@@ -4,11 +4,11 @@ import { Header, Content, Loader } from 'components'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import './styles.scss'
 
-const Dashboard = ({ title, listPokemons, getPokemons, handleScroll }) => {
+const Dashboard = ({ title, listPokemons, getPokemons, handleScroll, isMobile }) => {
 
   return (
     <div className='dashboard'>
-      <Header title={title}></Header>
+      <Header title={title} isMobile={isMobile} ></Header>
       <InfiniteScroll
         dataLength={listPokemons.length}
         next={getPokemons}
@@ -24,6 +24,7 @@ const Dashboard = ({ title, listPokemons, getPokemons, handleScroll }) => {
 
 Dashboard.propTypes = {
   title: PropTypes.string,
+  isMobile: PropTypes.bool,
   getPokemons: PropTypes.func,
   handleScroll: PropTypes.func,
   listPokemons: PropTypes.array
@@ -31,6 +32,7 @@ Dashboard.propTypes = {
 
 Dashboard.defaultProps = {
   title: '',
+  isMobile: false,
   getPokemons: () => {},
   handleScroll: () => {},
   listPokemons: []
