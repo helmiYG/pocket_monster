@@ -5,12 +5,23 @@
 import { getPokemons, getPokemon } from 'utils/api'
 
 export const SET_LOADING = 'pokemons/SET_LOADING';
+export const SET_ON_SEARCHING = 'pokemons/SET_ON_SEARCHING';
+export const SET_NAME = 'pokemons/SET_NAME';
 export const SET_LIST_POKEMONS = 'pokemons/SET_LIST_POKEMONS';
 export const SET_NEXT_URL = 'pokemons/SET_NEXT_URL';
 export const SET_LIST_POKEMONS_MASTER = 'pokemons/SET_LIST_POKEMONS_MASTER';
 
 export const setLoading = (payload) => ({
   type: SET_LOADING,
+  payload
+});
+export const setName = (payload) => ({
+  type: SET_NAME,
+  payload
+});
+
+export const setOnSearching = (payload) => ({
+  type: SET_ON_SEARCHING,
   payload
 });
 
@@ -63,7 +74,7 @@ export const filterData = (value) => (dispatch, getState) => {
   const data = getState().pokemons.listPokemonsMaster;
 
   let payload = [];
-
+  dispatch(setName(value))
   
   payload = [
     ...data.filter(

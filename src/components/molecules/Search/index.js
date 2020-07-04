@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { H1, Input } from 'components'
-import { filterData } from 'stores/actions'
+import { filterData, setOnSearching } from 'stores/actions'
 import { useDispatch } from 'react-redux'
 import classname from 'classnames';
 import './styles.scss';
@@ -18,11 +18,20 @@ const Search = ({ propsName }) => {
     dispatch(filterData(target.value))
   }
 
+  const hanldeFocus = () => {
+    dispatch(setOnSearching(false))
+  }
+
+  const hanldeOnBlur = () => {
+    dispatch(setOnSearching(true))
+  }
+
+
   const classNames = classname('m-search')
   return (
     <div className={classNames}>
       <H1>Search</H1>
-      <Input type='text' onChange={handleChange} value={name} placeholder='input your keyword here' size='full'/>
+      <Input type='text' onChange={handleChange} onFocus={hanldeFocus} onBlur={hanldeOnBlur} value={name} placeholder='input your keyword here' size='full'/>
     </div>
   )
 }

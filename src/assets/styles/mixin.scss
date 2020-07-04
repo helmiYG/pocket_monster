@@ -2,6 +2,11 @@
   @if $breakpoint == mini {
     @media only screen and (max-width: 350px) { @content };
   }
+  
+  @if $breakpoint == mini-phone { 
+    @media only screen and (max-width: 500px) { @content };
+  }
+
   @if $breakpoint == phone {
     @media only screen and (max-width: 790px) { @content }; //600px / 16px
   }

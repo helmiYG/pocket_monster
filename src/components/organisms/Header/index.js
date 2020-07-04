@@ -15,14 +15,13 @@ const Header = ({ className, title, isMobile }) => {
 
   const navSlide = () => {
     const listMenuLink = document.querySelectorAll('.list-menu li');
-    const listMenu = document.querySelector('.list-menu')
     if (!isNav) {
       listMenuLink.forEach((link) => {
         link.style.animation = 'movinBottom 0.8s ease-in forwards 0s'
       })
     } else {
       listMenuLink.forEach((link) => {
-        link.style.animation = ''
+        link.style.animation = 'movinTop 0.8s ease-in forwards 0s'
       })
     }
     setIsNav(!isNav)

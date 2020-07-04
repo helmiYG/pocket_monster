@@ -22,3 +22,9 @@ Styles for Input component
   width: 90%;
   overflow: hidden;
 }
+
+@include respond (mini-phone) {
+  .full {
+    width: 80%;
+  }
+}

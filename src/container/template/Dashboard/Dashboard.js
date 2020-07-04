@@ -1,10 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Header, Content, Loader } from 'components'
+import { shallowEqual, useSelector } from 'react-redux'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import './styles.scss'
 
 const Dashboard = ({ title, listPokemons, getPokemons, handleScroll, isMobile }) => {
+  const { isSearching, name } = useSelector(
+    ({ pokemons }) => ({
+      isSearching: pokemons.isSearching,
+      name: pokemons.name
+    }), shallowEqual)
 
   return (
     <div className='dashboard'>
@@ -13,7 +19,7 @@ const Dashboard = ({ title, listPokemons, getPokemons, handleScroll, isMobile })
         dataLength={listPokemons.length}
         next={getPokemons}
         onScroll={handleScroll}
-        hasMore={true}
+        hasMore={isSearching || !name}
         loader={<Loader />}
       >
         <Content listPokemons={listPokemons} />
