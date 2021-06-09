@@ -60,7 +60,7 @@ const Header = ({ className, title, isMobile }) => {
             </Links>
           </li>
           <li>
-            <Links type='link-dom' className={isMobile ? 'mobile' : ''} to='/'>
+            <Links type='link-dom' className={isMobile ? 'mobile' : ''} to='/about'>
               About
             </Links>
           </li>

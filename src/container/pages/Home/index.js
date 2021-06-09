@@ -3,6 +3,7 @@ import { getPokemonsAction  } from 'stores/actions'
 import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 // import PropTypes from 'prop-types'
 import Dashboard  from 'container/template/Dashboard/Dashboard'
+import HomeComponent from './HomeComponent'
 
 const Home = () => {
   const [ isMobile, setIsMobile ] = useState(false)
@@ -30,7 +31,11 @@ const Home = () => {
     
   }, )
   return (
-    <Dashboard title='Pocket Monster' listPokemons={listPokemons} getPokemons={getPokemons} isMobile={isMobile} />
+    <Dashboard 
+      title='Pocket Monster'
+      content={<HomeComponent listPokemons={listPokemons} getPokemons={getPokemons} />}
+      isMobile={isMobile} 
+    />
   )
 }
 

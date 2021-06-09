@@ -1,36 +1,26 @@
 import React from 'react'
 import classname from 'classnames';
 import PropTypes from 'prop-types'
-import { Search, Card } from 'components'
 import './styles.scss'
 
-const Content = ({ className, listPokemons }) => {
+const Content = ({ className, content }) => {
   const classNames = classname('o-content', className);
   return (
     <div className={classNames}>
-      <Search />
-      <div className='list-content'>
-        {
-          listPokemons.map((element) => (
-            <>
-              <Card image={element.image} name={element.name} />
-            </>
-          ))
-        }
-      </div>
+      {content}
     </div>
   )
 }
 
 Content.propTypes = {
   className: PropTypes.string,
-  listPokemons: PropTypes.array
+  content: PropTypes.node
 }
 
 
 Content.defaultProps = {
   className: '',
-  listPokemons: []
+  content: ''
 }
 
 export default Content
