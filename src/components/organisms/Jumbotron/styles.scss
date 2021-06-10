@@ -1,0 +1,30 @@
+/* ==========================================================================
+Styles for Jumbotron component
+========================================================================== */
+
+// import mixin and variables
+@import "../../../assets/styles/main";
+
+// Start styles Jumbotron component
+.o-jumbotron {
+  background-color: white;
+  margin-top: 50px;
+  padding: 20px;
+  min-height: 400px;
+  line-height: 2rem;
+  border-radius: 20px;
+
+  .jumbotron-content {
+    margin-top: 40px;
+    text-align: justify;
+    display: table;
+    .about-content {
+      display: table-cell;
+      padding: 0px 40px;
+
+      &:not(:last-child) {
+        border-right: black 1px solid;
+      }
+    }
+  }
+}

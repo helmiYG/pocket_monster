@@ -27,11 +27,8 @@ module.exports = {
   ],
   actions: (data) => {
     let componentTemplate;
-    if (data.type === 'organisms') {
-      componentTemplate = './components/add/class.hbs';
-    } else {
-      componentTemplate = './components/add/function.hbs';
-    }
+    componentTemplate = './components/add/function.hbs';
+    // }
     const actions = [
       {
         type: 'add',

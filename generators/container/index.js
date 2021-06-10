@@ -26,7 +26,7 @@ module.exports = {
     }
   ],
   actions: (data) => {
-    const componentTemplate = './container/add/class.hbs';
+    const componentTemplate = './container/add/func.hbs';
     let targetRoot = data.type;
     if (data.type === 'dummy') targetRoot = 'pages/Dummy';
 

@@ -1,12 +1,17 @@
 import React, { useEffect, useCallback, useState } from 'react'
 import { getPokemonsAction  } from 'stores/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 // import PropTypes from 'prop-types'
 import Dashboard  from 'container/template/Dashboard/Dashboard'
-import HomeComponent from './HomeComponent'
+import PokemonComponent from './PokemonComponent'
 
-const Home = () => {
+const Pokemon = () => {
   const [ isMobile, setIsMobile ] = useState(false)
+  const { listPokemons } = useSelector(
+    ({ pokemons }) => ({
+      listPokemons: pokemons.listPokemons
+    }),
+    shallowEqual)
 
   const dispatch = useDispatch()
 
@@ -28,10 +33,10 @@ const Home = () => {
   return (
     <Dashboard 
       title='Pocket Monster'
-      content={<HomeComponent isMobile={isMobile}  />}
+      content={<PokemonComponent listPokemons={listPokemons} getPokemons={getPokemons} />}
       isMobile={isMobile} 
     />
   )
 }
 
-export default Home
+export default Pokemon

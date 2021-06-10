@@ -3,9 +3,38 @@ Styles for Home component
 ========================================================================== */
 
 // import mixin and variables
-@import "../../../assets/styles/helper/function", "../../../assets/styles/helper/mixin", "../../../assets/styles/project/init/variables";
+@import "../../../assets/styles/main";
 
 // Start styles Home component
 .p-home {
+  height: 20rem;
+  background-color: white;
+  padding: 30px;
+  text-align: left;
+  border-radius: 20px;
+  margin-top: 50px;
 
+  @media screen and (max-width: 560px) {
+    height: 100%;
+  }
+
+  &-title {
+    margin-top: 50px;
+    font-size: 30px;
+    letter-spacing: 5px;
+    @media screen and (max-width: 560px) {
+      letter-spacing: 0px;
+    }
+  }
+
+  .border {
+    border-width: 3px;
+    border-color: black;
+    box-shadow: none;
+  }
+
+  &-desc {
+    margin-top: 10px;
+    line-height: 40px;
+  }
 }
